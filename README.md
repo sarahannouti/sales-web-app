@@ -1,3 +1,15 @@
+### Homepage
+
+![sales-homepage](./docs/sales-homepage.drawio.svg)
+
+### Product slug
+
+![sales-product-slug](./docs/sales-product.drawio.svg)
+
+### favotiries
+
+![sales-favorities](./docs/sales-favorites.drawio.svg)
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
