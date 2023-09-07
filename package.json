@@ -7,16 +7,19 @@
     "build": "vite build",
     "commit": "git-cz",
     "dev": "vite --port 3000",
+    "format": "prettier --write .",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "prepare": "husky install",
     "preview": "vite preview"
   },
   "dependencies": {
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
