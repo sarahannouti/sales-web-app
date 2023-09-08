@@ -40,7 +40,7 @@ export default function MainTemplate() {
       <main>
         <Outlet />
       </main>
-      <footer>@ 2023</footer>
+      <footer>SHA : 2023</footer>
     </>
   );
 }
