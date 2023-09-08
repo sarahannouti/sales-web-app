@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export default function MainTemplate() {
   return (
@@ -6,8 +6,12 @@ export default function MainTemplate() {
       <header>
         <nav>
           <ol>
-            <li>menu1</li>
-            <li>menu2</li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/counters">Counters</Link>
+            </li>
             <li>menu3</li>
           </ol>
         </nav>
