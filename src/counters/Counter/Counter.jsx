@@ -1,4 +1,4 @@
-import { useCounter } from "../hooks";
+import { useCounter } from "../../hooks";
 import { number } from "prop-types";
 
 export default function Counter({ initialValue = 0, step = 1 }) {
