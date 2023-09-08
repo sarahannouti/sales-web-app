@@ -5,9 +5,8 @@ export default function CountersPage() {
     <>
       <Typography variant="h1">CountersPage</Typography>
       <Counter />
-      <Counter initialValue={42} />
-      <Counter initialValue={10} step={2} />
-      <Counter initialValue={-10} step={2} />
+      <Counter initialValue={5} />
+      <Counter initialValue={-10} step={10} />
     </>
   );
 }

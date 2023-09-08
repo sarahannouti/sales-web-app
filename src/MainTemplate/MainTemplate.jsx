@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Typography, Button } from "@mui/material";
+import { Typography } from "@mui/material";
 import "./styles.css";
 
 export default function MainTemplate() {
@@ -39,7 +39,6 @@ export default function MainTemplate() {
         </nav>
       </header>
       <main>
-        <Button variant="contained">click me</Button>
         <Outlet />
       </main>
       <footer>
