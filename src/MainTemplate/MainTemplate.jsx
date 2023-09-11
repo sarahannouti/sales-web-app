@@ -1,11 +1,18 @@
-import clsx from "clsx";
-import { Link, Outlet, useLocation } from "react-router-dom";
-import { Typography } from "@mui/material";
-import "./styles.css";
+import { Link, Outlet } from "react-router-dom";
+import {
+  AppBar,
+  Avatar,
+  Box,
+  Container,
+  IconButton,
+  Toolbar,
+  Typography,
+  Button,
+} from "@mui/material";
+import "./styles.js";
+import { Footer } from "./styles.js";
 
 export default function MainTemplate() {
-  const { pathname } = useLocation();
-
   const menu = [
     {
       id: 1,
@@ -22,28 +29,55 @@ export default function MainTemplate() {
   return (
     <>
       <header>
-        <nav>
-          <ol>
-            {menu.map(({ id, to, label }) => (
-              <li key={id}>
-                <Link
-                  to={to}
-                  //className={`menu-item ${to === pathname ? "current" : ""}`}
-                  className={clsx("menu-item", { current: to === pathname })}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </nav>
+        <AppBar position="static">
+          <Container maxWidth="xl">
+            <Toolbar disableGutters>
+              <Typography
+                variant="h6"
+                noWrap
+                component={Link}
+                to="/"
+                sx={{
+                  mr: 2,
+                  display: "flex",
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
+              >
+                Sales
+              </Typography>
+
+              <Box sx={{ flexGrow: 1, display: "flex" }}>
+                {menu.map(({ to, label }) => (
+                  <Button
+                    key={label}
+                    component={Link}
+                    to={to}
+                    sx={{
+                      my: 2,
+                      color: "white",
+                    }}
+                  >
+                    {label}
+                  </Button>
+                ))}
+              </Box>
+
+              <Box sx={{ flexGrow: 0 }}>
+                <IconButton component={Link} sx={{ p: 0 }}>
+                  <Avatar alt="Sara" src="/" />
+                </IconButton>
+              </Box>
+            </Toolbar>
+          </Container>
+        </AppBar>
       </header>
       <main>
         <Outlet />
       </main>
-      <footer>
-        <Typography variant="caption">SHA : 2023</Typography>
-      </footer>
+      <Footer>
+        <Typography variant="overline">SHA : 2023</Typography>
+      </Footer>
     </>
   );
 }
