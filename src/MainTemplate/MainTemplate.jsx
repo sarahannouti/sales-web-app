@@ -45,7 +45,6 @@ export default function MainTemplate() {
             >
               Sales
             </Typography>
-
             <Box sx={{ flexGrow: 1, display: "flex" }}>
               {menu.map(({ to, label }) => (
                 <Button
@@ -58,7 +57,6 @@ export default function MainTemplate() {
                 </Button>
               ))}
             </Box>
-
             <Box sx={{ flexGrow: 0 }}>
               <IconButton component={Link} sx={{ p: 0 }}>
                 <Avatar alt="Sara" src="/" />
