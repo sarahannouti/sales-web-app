@@ -9,9 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import "./styles.js";
-import { Footer } from "./styles.js";
-import { Button } from "./styles.js";
+import { Footer, Button } from "./styles.js";
 
 export default function MainTemplate() {
   const { pathname } = useLocation();

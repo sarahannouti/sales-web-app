@@ -13,5 +13,5 @@ export const Button = styled(MuiButton, {
 })(({ theme, current }) => ({
   margin: `${theme.spacing(2)} 0`,
   color: "white",
-  borderBottom: current ? "2px solid white" : null,
+  borderBottom: current ? "2px solid white" : 0,
 }));
