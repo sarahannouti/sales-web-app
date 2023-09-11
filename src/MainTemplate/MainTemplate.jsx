@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import {
   AppBar,
   Avatar,
@@ -7,12 +7,14 @@ import {
   IconButton,
   Toolbar,
   Typography,
-  Button,
 } from "@mui/material";
+
 import "./styles.js";
 import { Footer } from "./styles.js";
+import { Button } from "./styles.js";
 
 export default function MainTemplate() {
+  const { pathname } = useLocation();
   const menu = [
     {
       id: 1,
@@ -28,50 +30,45 @@ export default function MainTemplate() {
 
   return (
     <>
-      <header>
-        <AppBar position="static">
-          <Container maxWidth="xl">
-            <Toolbar disableGutters>
-              <Typography
-                variant="h6"
-                noWrap
-                component={Link}
-                to="/"
-                sx={{
-                  mr: 2,
-                  display: "flex",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
-              >
-                Sales
-              </Typography>
+      <AppBar position="static">
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Typography
+              variant="h6"
+              noWrap
+              component={Link}
+              to="/"
+              sx={{
+                mr: 2,
+                display: "flex",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              Sales
+            </Typography>
 
-              <Box sx={{ flexGrow: 1, display: "flex" }}>
-                {menu.map(({ to, label }) => (
-                  <Button
-                    key={label}
-                    component={Link}
-                    to={to}
-                    sx={{
-                      my: 2,
-                      color: "white",
-                    }}
-                  >
-                    {label}
-                  </Button>
-                ))}
-              </Box>
+            <Box sx={{ flexGrow: 1, display: "flex" }}>
+              {menu.map(({ to, label }) => (
+                <Button
+                  key={label}
+                  component={Link}
+                  to={to}
+                  current={pathname === to}
+                >
+                  {label}
+                </Button>
+              ))}
+            </Box>
 
-              <Box sx={{ flexGrow: 0 }}>
-                <IconButton component={Link} sx={{ p: 0 }}>
-                  <Avatar alt="Sara" src="/" />
-                </IconButton>
-              </Box>
-            </Toolbar>
-          </Container>
-        </AppBar>
-      </header>
+            <Box sx={{ flexGrow: 0 }}>
+              <IconButton component={Link} sx={{ p: 0 }}>
+                <Avatar alt="Sara" src="/" />
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
       <main>
         <Outlet />
       </main>
