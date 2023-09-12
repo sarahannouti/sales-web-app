@@ -1,10 +1,12 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:3001";
 
-export default function useProducts() {
-  return useQuery(["products"], () =>
-    // TODO Client HTTP ? Axios ? Ky ?
-    fetch(`${baseUrl}/products`).then((response) => response.json()),
+export default function useProducts({ condition }) {
+  console.log(condition);
+  return useQuery(["products", { condition }], () =>
+    fetch(`${baseUrl}/products?condition=${condition}`).then((response) =>
+      response.json(),
+    ),
   );
 }

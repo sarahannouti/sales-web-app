@@ -1,4 +1,13 @@
-import { Box } from "@mui/material";
+import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  LinearProgress,
+  Radio,
+  RadioGroup,
+  Stack,
+  TextField,
+} from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 
 import { ProductCondition } from "../ProductCondition";
@@ -7,12 +16,14 @@ import { ProductImage } from "../ProductImage";
 import { ProductPrice } from "../ProductPrice";
 import { withRow } from "../../hoc";
 import { useProducts } from "../../hooks";
+import useCondition from "../../hooks/useCondition";
 
 export default function HomePage() {
-  const { isLoading, error, data: products } = useProducts();
+  const [condition, setCondition] = useCondition();
+  const { isLoading, error, data: products } = useProducts({ condition });
 
   // TODO Utilisons un composant MUI
-  if (isLoading) return "Loading…";
+  if (isLoading) return <LinearProgress />;
 
   // TODO Est-ce qu'on pourrait pas utiliser un message d'erreur
   // pour l'utilisateur à la hauteur de l'app entière ?
@@ -44,13 +55,33 @@ export default function HomePage() {
   ];
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <>
+      <Stack direction="row" justifyContent="center" spacing={6} sx={{ my: 4 }}>
+        <TextField label="Recherche" sx={{ width: 400 }} />
+        <FormControl>
+          <FormLabel id="condition-label">Condition</FormLabel>
+          <RadioGroup
+            row
+            aria-labelledby="condition-label"
+            name="condition"
+            value={condition}
+            onChange={setCondition}
+          >
+            <FormControlLabel value="new" control={<Radio />} label="Neuf" />
+            <FormControlLabel
+              value="used"
+              control={<Radio />}
+              label="Occasion"
+            />
+          </RadioGroup>
+        </FormControl>
+      </Stack>
       <DataGrid
         rows={products}
         columns={productColumns}
         disableRowSelectionOnClick
         autoHeight
       />
-    </Box>
+    </>
   );
 }

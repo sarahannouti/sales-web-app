@@ -59,7 +59,7 @@ export default function MainTemplate() {
 
             <Box sx={{ flexGrow: 0 }}>
               <IconButton component={Link} sx={{ p: 0 }}>
-                <Avatar>RL</Avatar>
+                <Avatar>S</Avatar>
               </IconButton>
             </Box>
           </Toolbar>
@@ -69,7 +69,7 @@ export default function MainTemplate() {
         <Outlet />
       </main>
       <Footer>
-        <Typography variant="overline">© 2023</Typography>
+        <Typography variant="overline">© 2023 - SHA</Typography>
       </Footer>
     </>
   );
