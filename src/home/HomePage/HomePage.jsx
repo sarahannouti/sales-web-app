@@ -22,9 +22,6 @@ export default function HomePage() {
   const [condition, setCondition] = useCondition();
   const { isLoading, error, data: products } = useProducts({ condition });
 
-  // TODO Utilisons un composant MUI
-  if (isLoading) return <LinearProgress />;
-
   // TODO Est-ce qu'on pourrait pas utiliser un message d'erreur
   // pour l'utilisateur à la hauteur de l'app entière ?
   if (error) return "oulala";
@@ -67,6 +64,7 @@ export default function HomePage() {
             value={condition}
             onChange={setCondition}
           >
+            <FormControlLabel value="" control={<Radio />} label="Toutes" />
             <FormControlLabel value="new" control={<Radio />} label="Neuf" />
             <FormControlLabel
               value="used"
@@ -76,12 +74,16 @@ export default function HomePage() {
           </RadioGroup>
         </FormControl>
       </Stack>
-      <DataGrid
-        rows={products}
-        columns={productColumns}
-        disableRowSelectionOnClick
-        autoHeight
-      />
+      {isLoading ? (
+        <LinearProgress />
+      ) : (
+        <DataGrid
+          rows={products}
+          columns={productColumns}
+          disableRowSelectionOnClick
+          autoHeight
+        />
+      )}
     </>
   );
 }
