@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import { HomePage } from "../home/HomePage";
-import { MainTemplate } from "../MainTemplate";
 import { CountersPage } from "../counters/CountersPage";
+import { MainTemplate } from "../ds/atoms/templates";
 
 export const router = createBrowserRouter([
   {
