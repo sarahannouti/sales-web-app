@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-
-const baseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:3001";
+import { salesHttpClient } from "../salesHttpClient";
 
 export default function useProducts({ condition, search }) {
   const searchParams = new URLSearchParams();
@@ -9,8 +8,8 @@ export default function useProducts({ condition, search }) {
   if (search) searchParams.set("q", search);
 
   return useQuery(["products", { condition, search }], () =>
-    fetch(`${baseUrl}/products?${searchParams}`).then((response) =>
-      response.json(),
-    ),
+    salesHttpClient
+      .get(`/products?${searchParams}`)
+      .then((response) => response.data),
   );
 }
