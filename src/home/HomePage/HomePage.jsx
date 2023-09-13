@@ -11,7 +11,7 @@ import {
 import { DataGrid } from "@mui/x-data-grid";
 
 import { useProducts, useProductSearch } from "../../hooks";
-import { productColumns } from "../../products/ProductColumns";
+import { productColumns } from "../../products/productColumns";
 
 export default function HomePage() {
   const { condition, search, setCondition, setSearch } = useProductSearch();
