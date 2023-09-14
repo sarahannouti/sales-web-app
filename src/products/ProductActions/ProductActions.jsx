@@ -1,12 +1,15 @@
-import { FavoriteBorder } from "@mui/icons-material";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import { string } from "prop-types";
+import { FavoritesContext } from "../../contexts";
 
 export default function ProductActions({ id }) {
-  const toggleFavorite = (id) => () => console.log(id);
+  const { favorites, toggleFavorite } = FavoritesContext.useContext();
+  const isFavorite = favorites.includes(id);
+
   return (
-    <IconButton onClick={toggleFavorite(id)}>
-      <FavoriteBorder />
+    <IconButton onClick={() => toggleFavorite(id)}>
+      {isFavorite ? <Favorite /> : <FavoriteBorder />}
     </IconButton>
   );
 }
