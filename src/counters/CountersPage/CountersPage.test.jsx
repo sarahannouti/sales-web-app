@@ -9,5 +9,7 @@ describe("CountersPage", () => {
     expect(
       screen.getByRole("heading", { name: "CountersPage", level: 1 }),
     ).toBeInTheDocument();
+
+    //expect(screen.getAllByLabelText("counter")).toHaveLength(3);
   });
 });
