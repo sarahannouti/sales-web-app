@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "../../test-utils";
+import { render, screen, waitFor } from "@/test-utils";
 import { describe, expect, it } from "vitest";
 
 import { HomePage } from "./";

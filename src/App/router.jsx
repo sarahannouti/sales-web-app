@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { MainTemplate } from "../ds/templates";
+import { MainTemplate } from "@/ds/templates";
 import { HomePage } from "../home/HomePage";
 import { FavoritesPage } from "../products/FavoritesPage";
 import ProductPage from "../products/ProductPage/ProductPage";
